@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5944903-161c-4b2f-a5d3-6fc1abd89f2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/bluecatcode_junit_4_10_extended.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/atmMocks.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ATM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Hardware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/HardwareImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/ServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/TestATM.java" afterDir="false" />
-    </list>
+    <list default="true" id="a5944903-161c-4b2f-a5d3-6fc1abd89f2d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
