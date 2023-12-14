@@ -4,7 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5944903-161c-4b2f-a5d3-6fc1abd89f2d" name="Changes" comment="" />
+    <list default="true" id="a5944903-161c-4b2f-a5d3-6fc1abd89f2d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/atmMocks.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ATM.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Hardware.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/HardwareImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Service.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestATM.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/AbsoluteDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/AbsoluteDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/ChooseTheBetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/ChooseTheBetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/Discount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/PercentageDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/PercentageDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/ShoppingCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/ShoppingCart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/ShoppingCartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/ShoppingCartItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/ShoppingCartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/ShoppingCartTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab6/lab6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab6/lab6.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,10 +43,10 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2ZGS1srvO0k0zdKwMKRPzzdk5GL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -50,11 +69,19 @@
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "openjdk-21",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/samnart/github/unibz/firstSem/softwareDesign/atmMocks/lab 4",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-8336523bb0d9-cc9f59e6" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

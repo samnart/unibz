@@ -1,2 +1,5 @@
-package PACKAGE_NAME;public class PercentageDiscount {
+public class PercentageDiscount implements Discount{
+    private double value;
+
+    public
 }
