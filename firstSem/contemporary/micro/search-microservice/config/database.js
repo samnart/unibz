@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/my_database_name', {
+mongoose.connect('mongodb://localhost:27017/search_microservice_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
