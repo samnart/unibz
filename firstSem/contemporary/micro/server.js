@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const searchRoutes = require('./routes/searchRoutes');
+const apartmentRoutes = require('./routes/apartmentRoutes');
 const databaseConfig = require('./config/database');
 
 const app = express();
@@ -20,6 +21,7 @@ mongoose.connect(databaseConfig.database, databaseConfig.options);
 // Setup middleware and routes
 app.use(express.json());
 app.use('/api', searchRoutes);
+app.use('/api', apartmentRoutes);
 
 // Start the server
 const port = process.env.PORT || 3000;
