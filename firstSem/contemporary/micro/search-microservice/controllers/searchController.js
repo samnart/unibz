@@ -20,4 +20,4 @@ const searchAccommodations = async (req, res) => {
     }
 };
 
-module.expoers = { searchAccommodations };
+module.exports = { searchAccommodations };
