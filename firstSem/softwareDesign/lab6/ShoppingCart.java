@@ -3,6 +3,7 @@ import java.util.List;
 
 public class ShoppingCart {
     private List<ShoppingCartItem> items = new ArrayList<>();
+
     public double totalValue() {
         double total = 0.0;
         for (ShoppingCartItem item : items) {
@@ -11,21 +12,41 @@ public class ShoppingCart {
         return  total;
     }
 
-    public Product getProduct() {}
-
     public boolean hasDiscount() {
-        return item == null? false : item.getDiscount() > 0.0;
+        for (ShoppingCartItem item : items) {
+            if (!item.getDiscounts().isEmpty()){
+                return true;
+            }
+        }
+        return false;
     }
 
     public double moneySaving() {
-        return item == null? 0: item.getDiscount();
+        double savings = 0.0;
+        for (ShoppingCartItem item : items) {
+            for (Discount discount : item.getDiscounts()) {
+                savings += discount.discountValue(item);
+            }
+        }
+        return savings;
     }
 
     public int numberOfItems() {
-        return item == null ? 0 : item.getAmount();
+        int count = 0;
+        for (ShoppingCartItem item : items) {
+            count += item.getAmount();
+        }
+        return count;
     }
 
     public void addItem(ShoppingCartItem item){
-        this.item = item;
+        items.add(item);
+    }
+
+    public void addDiscountToAllItems(Discount discount) {
+        for (ShoppingCartItem item : items) {
+            item.addDiscount(discount);
+        }
     }
 }
+
