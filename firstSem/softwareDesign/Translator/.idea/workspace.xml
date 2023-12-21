@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ddb8efb0-641a-41b0-b85b-c0c0dbc1d808" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/GradeAi.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/src/main/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/src/main/GradeCalculator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../contemporary/GradeAi/src/test/GradeCalculatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/AI/.idea/AI.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/Grade.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/src/main/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/src/main/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grade/grade/src/test/GradeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/Grade.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/src/main/Grade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grade/src/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bluecatcode_junit_4_10_extended.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Translator.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Translator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/MainTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestTranslator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../grade/grade.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2ZGdlNSRBwSeYoSo9Wj9gTYsTzW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.MainTest.executor": "Run",
+    "JUnit.TestTranslator.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/samnart/github/unibz/firstSem/softwareDesign/Translator/TranslatorAi",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-8336523bb0d9-cc9f59e6" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ddb8efb0-641a-41b0-b85b-c0c0dbc1d808" name="Changes" comment="" />
+      <created>1702052499902</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702052499902</updated>
+    </task>
+    <servers />
+  </component>
+</project>
