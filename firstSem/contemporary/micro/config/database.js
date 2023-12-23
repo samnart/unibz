@@ -11,15 +11,27 @@
 
 const mongoose = require('mongoose');
 
-const dbName = 'search_microservice_db';
+// const dbName = 'search_microservice_db';
 
-const databaseConfig = {
-  database: `mongodb://localhost:27017/${dbName}`,
-  options: {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
+// const databaseConfig = {
+//   database: `mongodb://localhost:27017/${dbName}`,
+//   options: {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   },
+// };
+
+// module.exports = databaseConfig;
+
+const getDatabaseConfig = (microserviceName) => {
+  return {
+    database: `mongodb://localhost:27017/${microserviceName}_db`,
+    options: {
+      useNewUrlPaerser: true,
+      useUnifiedTopology: true,
+    },
+  };
 };
 
-module.exports = databaseConfig;
+module.exports = getDatabaseConfig;
 

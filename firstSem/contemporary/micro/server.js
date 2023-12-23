@@ -1,5 +1,7 @@
 // server.js
 
+
+
 const express = require('express');
 const mongoose = require('mongoose');
 const searchRoutes = require('./routes/searchRoutes');
@@ -7,30 +9,31 @@ const apartmentRoutes = require('./routes/apartmentRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const databaseConfig = require('./config/database');
 
+const searchSchema = require('./models/Accomodation');
+const apartmentSchema = require('./models/Apartment');
+const bookingSchema = require('./models/Booking');
+
 const app = express();
+
+// Uncomment the following lines to define searchMicroserviceDbConfig
+const searchMicroserviceDbConfig = { ...databaseConfig, database: `mongodb://localhost:27017/search_microservice_db` };
+const apartmentMicroserviceDbConfig = { ...databaseConfig, database: `mongodb://localhost:27017/apartment_microservice_db` };
+const bookingMicroserviceDbConfig = { ...databaseConfig, database: `mongodb://localhost:27017/booking_microservice_db` };
+
 
 // connect to the respective microservice databases
 
-const searchMicroserviceDbConfig = { ...databaseConfig, database: `mongodb://localhost:27017/search_microservice_db` };
-mongoose.connect(searchMicroserviceDbConfig.database, searchMicroserviceDbConfig.options);
+// Use mongoose.createConnection to create separate connections
+const searchConnection = mongoose.createConnection(searchMicroserviceDbConfig.database, searchMicroserviceDbConfig.options);
+const apartmentConnection = mongoose.createConnection(apartmentMicroserviceDbConfig.database, apartmentMicroserviceDbConfig.options);
+const bookingConnection = mongoose.createConnection(bookingMicroserviceDbConfig.database, bookingMicroserviceDbConfig.options);
 
-const apartmentMicroserviceDbConfig = { ...databaseConfig, database: `mongodb://localhost:27017/search_microservice_db` };
-mongoose.connect(apartmentMicroserviceDbConfig.database, apartmentMicroserviceDbConfig.options);
+// Use the connections in your models or queries
+const SearchModel = searchConnection.model('Search', searchSchema);
+const ApartmentModel = apartmentConnection.model('Apartment', apartmentSchema);
+const BookingModel = bookingConnection.model('Booking', bookingSchema);
 
-const bookingMicroserviceDbConfig = { ...databaseConfig, database: `mongodb://localhost:27017/search_microservice_db` };
-mongoose.connect(bookingMicroserviceDbConfig.database, bookingMicroserviceDbConfig.options);
 
-// connect to the database
-// mongoose.Promise = global.Promise;
-// mongoose.connect(databaseConfig.database, { 
-//     useNewUrlParser: true, 
-//     useUnifiedTopology: true, 
-// });
-
-// mongoose.Promise = global.Promise;
-// mongoose.connect(databaseConfig.database, databaseConfig.options);
-
-// Setup middleware and routes
 app.use(express.json());
 app.use('/api', searchRoutes);
 app.use('/api', apartmentRoutes);
