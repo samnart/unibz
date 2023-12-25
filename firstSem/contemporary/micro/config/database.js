@@ -1,37 +1,18 @@
-// config/database.js
-
-// const mongoose = require('mongoose');
-
-// mongoose.connect('mongodb://localhost:27017/search_microservice_db', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// });
-
-
+// db.js
 
 const mongoose = require('mongoose');
 
-// const dbName = 'search_microservice_db';
+function connectToDatabase(uri) {
+  mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// const databaseConfig = {
-//   database: `mongodb://localhost:27017/${dbName}`,
-//   options: {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   },
-// };
+  const db = mongoose.connection;
 
-// module.exports = databaseConfig;
+  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+  db.once('open', () => {
+    console.log('Connected to MongoDB');
+  });
 
-const getDatabaseConfig = (microserviceName) => {
-  return {
-    database: `mongodb://localhost:27017/${microserviceName}_db`,
-    options: {
-      useNewUrlPaerser: true,
-      useUnifiedTopology: true,
-    },
-  };
-};
+  return db;
+}
 
-module.exports = getDatabaseConfig;
-
+module.exports = connectToDatabase;
