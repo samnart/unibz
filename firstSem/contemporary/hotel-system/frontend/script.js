@@ -1,23 +1,22 @@
-// frontend/script.js
-
-document.getElementById('searchForm').addEventListener('submit', async function(event) {
+document.getElementById('searchForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const location = document.getElementById('location').value;
 
     try {
         // Make API request to search-microservice
-        const searchResponse = await fetch('http://localhost:3001/api/search?location=' + location);
+        const searchResponse = await fetch(`http://localhost:3001/api/search?location=${encodeURIComponent(location)}`);
         const searchData = await searchResponse.json();
 
         // Update #searchResults with the search results
         const searchResultsContainer = document.getElementById('searchResults');
-        searchResultsContainer.innerHTML = ''; // Clear previous results
+        searchResultsContainer.innerHTML = '';
 
         if (searchData && searchData.results) {
             searchData.results.forEach(result => {
                 const resultElement = document.createElement('div');
-                resultElement.textContent = result.name; // You can customize this based on your search result structure
+                resultElement.className = 'searchResult';
+                resultElement.textContent = result.name;
                 searchResultsContainer.appendChild(resultElement);
             });
         }
@@ -28,7 +27,7 @@ document.getElementById('searchForm').addEventListener('submit', async function(
 
         // Update #apartmentsWithBookings with apartments and booking information
         const apartmentsWithBookingsContainer = document.getElementById('apartmentsWithBookings');
-        apartmentsWithBookingsContainer.innerHTML = ''; // Clear previous results
+        apartmentsWithBookingsContainer.innerHTML = '';
 
         if (apartmentData && apartmentData.apartmentsWithBookings) {
             apartmentData.apartmentsWithBookings.forEach(apartment => {

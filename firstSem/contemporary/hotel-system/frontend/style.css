@@ -1,46 +1,63 @@
-/* frontend/style.css */
-
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 20px;
-}
-
-h1 {
-    color: #333;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
 }
 
 form {
-    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 50px;
 }
 
 label {
+    font-size: 18px;
     margin-right: 10px;
 }
 
+input {
+    padding: 10px;
+    font-size: 16px;
+}
+
 button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
     cursor: pointer;
 }
 
-#searchResults {
-    margin-bottom: 20px;
+button:hover {
+    background-color: #0056b3;
 }
 
+#searchResults,
 #apartmentsWithBookings {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
+.searchResult,
 .apartmentCard {
-    border: 1px solid #ddd;
-    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
     margin: 10px;
-    width: 200px;
+    max-width: 300px;
+    text-align: center;
+    background-color: #fff;
 }
 
-.apartmentCard h2 {
-    margin-bottom: 5px;
+h2 {
+    color: #333;
 }
 
-.apartmentCard p {
-    margin: 0;
+p {
+    color: #666;
 }
+
+/* Add more styles as needed */
