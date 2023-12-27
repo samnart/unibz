@@ -5,7 +5,10 @@ const mongoose = require('mongoose');
 const apartmentRoutes = require('./routes/apartmentRoutes');
 const getDatabaseConfig = require('./config/database');
 
+const cors = require('cors');
+
 const app = express();
+app.use(cors());
 
 const apartmentMicroserviceDbConfig = getDatabaseConfig('apartment_microservice');
 mongoose.connect(apartmentMicroserviceDbConfig.database, apartmentMicroserviceDbConfig.options);
