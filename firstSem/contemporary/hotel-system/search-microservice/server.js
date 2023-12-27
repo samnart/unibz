@@ -5,7 +5,11 @@ const mongoose = require('mongoose');
 const searchRoutes = require('./routes/searchRoutes');
 const getDatabaseConfig = require('./config/database');
 
+const cors = require('cors');
+
 const app = express();
+// const port = 30001;
+app.use(cors());
 
 const searchMicroserviceDbConfig = getDatabaseConfig('search_microservice');
 mongoose.connect(searchMicroserviceDbConfig.database, searchMicroserviceDbConfig.options);
