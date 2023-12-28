@@ -1,28 +1,49 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel System</title>
-    <!-- Link to your external stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!-- Your existing HTML content -->
+    <div class="container">
+        <header>
+            <h1>Hotel System</h1>
+            <nav>
+                <a href="#" id="addApartmentLink">Add Apartment</a>
+                <a href="#" id="searchApartmentsLink">Search Apartments</a>
+            </nav>
+        </header>
 
-    <form id="searchForm">
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" required>
-        <button type="submit">Search</button>
-    </form>
+        <div id="content">
+            <!-- Form to add apartments -->
+            <form id="addApartmentForm" class="hidden">
+                <h2>Add Apartment</h2>
+                <label for="name">Apartment Name:</label>
+                <input type="text" id="name" name="name" required>
 
-    <div id="searchResults"></div>
-    <div id="apartmentsWithBookings"></div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
 
-    <!-- Link to your external script file -->
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+
+                <button type="submit">Add Apartment</button>
+            </form>
+
+            <!-- Form to search and book apartments -->
+            <form id="searchApartmentsForm" class="hidden">
+                <h2>Search Apartments</h2>
+                <label for="searchLocation">Search by Location:</label>
+                <input type="text" id="searchLocation" name="searchLocation" required>
+
+                <div id="searchResults" class="hidden"></div>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
