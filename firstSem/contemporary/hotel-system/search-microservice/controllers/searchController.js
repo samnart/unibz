@@ -29,7 +29,10 @@ const getAccommodationsWithDetails = async () => {
 
 const searchHandler = async (req, res) => {
   try {
+    console.log('Executing searchHandler');
+
     const accommodations = await getAccommodationsWithDetails();
+    console.log('Accommodations from Apartment Microservice:', accommodations);
     // Process and return search results
     res.json({ accommodations });
   } catch (error) {
