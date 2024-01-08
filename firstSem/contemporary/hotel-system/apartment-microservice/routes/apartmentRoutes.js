@@ -16,12 +16,10 @@
 
 const express = require('express');
 const router = express.Router();
-const Apartment = require('../models/Apartment');
+const apartmentController = require('../controllers/apartmentController');
 
 // GET request to retrieve apartments
-router.get('/apartments', async (req, res) => {
-    // Your existing code to retrieve apartments...
-});
+router.get('/apartments', apartmentController.getApartments);
 
 // POST request to add a new apartment
 router.post('/apartments', async (req, res) => {
