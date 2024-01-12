@@ -18,6 +18,9 @@ const express = require('express');
 const router = express.Router();
 const apartmentController = require('../controllers/apartmentController');
 
+const Apartment = require('../models/Apartment');
+
+
 // GET request to retrieve apartments
 router.get('/apartments', apartmentController.getApartments);
 
