@@ -1,19 +1,3 @@
-// apartment-microservice/routes/apartmentRoutes.js
-
-// const express = require('express');
-// const router = express.Router();
-// const apartmentController = require('../controllers/apartmentController');
-
-// const Apartment = require('../models/Apartment');
-
-// router.get('/apartments', apartmentController.getApartments);
-
-// module.exports = router;
-
-
-
-// apartment-microservice/routes/apartmentRoutes.js
-
 const express = require('express');
 const router = express.Router();
 const apartmentController = require('../controllers/apartmentController');
