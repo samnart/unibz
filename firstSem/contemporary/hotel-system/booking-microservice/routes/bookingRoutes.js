@@ -19,7 +19,7 @@ module.exports = (channel) => {
 
             res.json({ booking });
         } catch (error) {
-            console.log(error);
+            console.error(error);
             res.status(500).json({ error: 'Internal Server Error' });
         }
     });
