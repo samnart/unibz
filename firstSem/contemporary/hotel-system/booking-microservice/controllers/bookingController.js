@@ -1,5 +1,3 @@
-// booking-microservice/controllers/bookingController.js
-
 const amqp = require('amqplib');
 const Booking = require('../models/Booking');
 
@@ -11,7 +9,7 @@ const createBooking = async (req, res) => {
     const booking = await Booking.create({ accommodationId, startDate, endDate });
 
     // Connect to RabbitMQ server
-    const connection = await amqp.connect('amqp://localhost');
+    const connection = await amqp.connect('amqp://rabbitmq');
     const channel = await connection.createChannel();
 
     // Define a queue name for booking messages
@@ -24,9 +22,27 @@ const createBooking = async (req, res) => {
     // Close the RabbitMQ connection
     await connection.close();
 
-    res.json({ booking });
+    res.status(201).json({ booking });
   } catch (error) {
     console.error('Error creating booking:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const deleteBooking = async (req, res) => {
+  try {
+    const bookingId = req.params.bookingId;
+
+    // Delete the booking from the local database
+    const deletedBooking = await Booking.findByIdAndDelete(bookingId);
+
+    if (!deletedBooking) {
+      return res.status(404).json({ error: 'Booking not found' });
+    }
+
+    res.json({ message: 'Booking deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting booking:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
@@ -42,4 +58,4 @@ const getBookings = async (req, res) => {
   }
 };
 
-module.exports = { createBooking, getBookings };
+module.exports = { createBooking, deleteBooking, getBookings };
