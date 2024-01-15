@@ -2,11 +2,13 @@
 
 const amqp = require('amqplib');
 const mongoose = require('mongoose');
-const Booking = require('./models/Booking'); // Adjust the path based on your project structure
+const Booking = require('./models/Booking');
 
 const startBookingConsumer = async () => {
   try {
-    const connection = await amqp.connect('amqp://localhost');
+    // const connection = await amqp.connect('amqp://localhost');
+    const connection = await amqp.connect('amqp://rabbitmq');
+
     const channel = await connection.createChannel();
     const queue = 'booking_queue';
 
@@ -24,6 +26,7 @@ const startBookingConsumer = async () => {
     }, { noAck: true });
   } catch (error) {
     console.error('Error starting Booking Consumer', error);
+    process.exit(1); // Exit the process if there is an error
   }
 };
 
