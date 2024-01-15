@@ -1,69 +1,30 @@
-// const axios = require('axios');
-// const Apartment = require('../models/Apartment');
-
-// const getApartmentsWithBookings = async () => {
-//   try {
-//     // Make a request to the Booking Microservice to get information about bookings
-//     const response = await axios.get('http://localhost:3003/api/bookings');
-//     return response.data;
-//   } catch (error) {
-//     console.error('Error communicating with Booking Microservice', error.message);
-//     // Return a fallback response when there's an error (for example, an empty array)
-//     return { bookings: [] };
-//   }
-// };
-
-// const getApartments = async (req, res) => {
-//   try {
-//     // Get apartments from the local database
-//     const localApartments = await Apartment.find();
-
-//     // Get bookings from the Booking Microservice with error handling and fallback
-//     const bookingsResponse = await getApartmentsWithBookings();
-//     const bookings = bookingsResponse.bookings;
-
-//     console.log('Local Apartments:', localApartments);
-//     console.log('Bookings:', bookings);
-
-//     // Combine local apartments with booking information
-//     const apartmentsWithBookings = localApartments.map((apartment) => {
-//       const booking = bookings.find((booking) => booking.accommodationId.toString() === apartment._id.toString());
-//       return {
-//         ...apartment.toObject(),
-//         booking: booking || null,
-//       };
-//     });
-
-//     res.json({ apartmentsWithBookings });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// };
-
-// module.exports = { getApartments };
-
+// apartment-microservice/controllers/apartmentController.js
 
 const axios = require('axios');
 const amqp = require('amqplib');
+const express = require('express');
+const router = express.Router();
 const Apartment = require('../models/Apartment');
 
 const getApartmentsWithBookings = async () => {
   try {
-    // Make a request to the Booking Microservice to get information about bookings
-    const response = await axios.get('http://localhost:3003/api/bookings');
+    const response = await axios.get('http://booking-service:3003/api/bookings');
     return response.data;
   } catch (error) {
-    console.error('Error communicating with Booking Microservice', error.message);
-    throw error;
+    if (error.code === 'ECONNREFUSED') {
+      console.error('Error: Unable to connect to Booking Microservice. Ensure it is running.');
+    } else {
+      console.error('Error communicating with Booking Microservice', error.message);
+    }
+    return { bookings: [] }; // Return an empty array to handle the lack of bookings
   }
 };
+
 
 const createApartment = async (req, res) => {
   try {
     const { name, location, price } = req.body;
 
-    // Create a new apartment instance
     const newApartment = new Apartment({
       name,
       location,
@@ -89,24 +50,20 @@ const createApartment = async (req, res) => {
 
     res.status(201).json({ message: 'Apartment added successfully' });
   } catch (error) {
-    console.error(error);
+    console.error('Error creating apartment:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
 const getApartments = async (req, res) => {
   try {
-    // Get apartments from the local database
     const localApartments = await Apartment.find();
-
-    // Get bookings from the Booking Microservice
     const bookingsResponse = await getApartmentsWithBookings();
-    const bookings = bookingsResponse.bookings;
+    const bookings = bookingsResponse.bookings || [];
 
     console.log('Local Apartments:', localApartments);
     console.log('Bookings:', bookings);
 
-    // Combine local apartments with booking information
     const apartmentsWithBookings = localApartments.map((apartment) => {
       const booking = bookings.find((booking) => booking.accommodationId.toString() === apartment._id.toString());
       return {
@@ -117,9 +74,10 @@ const getApartments = async (req, res) => {
 
     res.json({ apartmentsWithBookings });
   } catch (error) {
-    console.error(error);
+    console.error('Error getting apartments:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
+
 
 module.exports = { createApartment, getApartments };
