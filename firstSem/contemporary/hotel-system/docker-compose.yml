@@ -2,42 +2,42 @@ version: '3'
 
 services:
   rabbitmq:
-    image: "rabbitmq: 3-management"
+    image: "rabbitmq:3-management"
     ports:
       - "5672:5672"
       - "15672:15672"
     networks:
       - microservices_network
 
-apartment-microservice:
-  build:
-    context: ./apartment-microservice
-  ports:
-    - "3002:3002"
-  networks:
-    - microservices_network
-  depends_on:
-    - rabbitmq
+  apartment-microservice:
+    build:
+      context: ./apartment-microservice
+    ports:
+      - "3002:3002"
+    networks:
+      - microservices_network
+    depends_on:
+      - rabbitmq
 
-booking-microservice:
-  build:
-    context: ./booking-microservice
-  ports:
-    - "3003:3003"
-  networks:
-    - microservices_network
-  depends_on:
-    - rabbitmq
+  booking-microservice:
+    build:
+      context: ./booking-microservice
+    ports:
+      - "3003:3003"
+    networks:
+      - microservices_network
+    depends_on:
+      - rabbitmq
 
-search-microservice:
-  build:
-    context: ./search-microservice
-  ports:
-    - "3001:3001"
-  networks:
-    - microservices_network
-  depends_on:
-    - rabbitmq
+  search-microservice:
+    build:
+      context: ./search-microservice
+    ports:
+      - "3001:3001"
+    networks:
+      - microservices_network
+    depends_on:
+      - rabbitmq
 
 networks:
   microservices_network:
