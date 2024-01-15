@@ -1,47 +1,80 @@
-// // search-microservice/routes/searchRoutes.js
+
 
 // const express = require('express');
 // const router = express.Router();
 // const searchController = require('../controllers/searchController');
+// const amqp = require('amqplib');
 
-// module.exports = (channel) => {
-//   // GET request to initiate search
-//   router.get('/search', async (req, res) => {
-//     try {
-//       console.log('Executing searchHandler');
+// const startSearchConsumer = async () => {
+//   try {
+//     const connection = await amqp.connect('amqp://localhost');
+//     const channel = await connection.createChannel();
+//     const queue = 'search_queue';
 
-//       // Send a message to RabbitMQ to trigger the search
-//       channel.sendToQueue('search_queue', Buffer.from(JSON.stringify({ action: 'search' })));
+//     await channel.assertQueue(queue, { durable: false });
 
-//       res.json({ message: 'Search initiated' });
-//     } catch (error) {
-//       console.error('Error initiating search:', error);
-//       res.status(500).json({ error: 'Internal Server Error' });
-//     }
-//   });
+//     console.log(`[*] Search Consumer waiting for messages in ${queue}. To exit press CTRL+C`);
 
-//   return router;
+//     channel.consume(queue, async (message) => {
+//       const action = JSON.parse(message.content.toString()).action;
+
+//       if (action === 'search') {
+//         // Perform search-related actions here
+//         console.log('Received search action');
+//         try {
+//           // Get detailed information about accommodations
+//           const accommodations = await searchController.getAccommodationsWithDetails();
+//           console.log('Accommodations from Apartment Microservice:', accommodations);
+
+//           // You can perform additional actions with the accommodations data here
+//         } catch (error) {
+//           console.error('Error getting accommodations from Apartment Microservice:', error.message);
+//           // Log the error and continue processing or return a default response
+//         }
+//       }
+//     }, { noAck: true });
+//   } catch (error) {
+//     console.error('Error starting Search Consumer', error);
+//     // Log the error and continue processing or exit gracefully
+//   }
 // };
 
-// search-microservice/routes/searchRoutes.js
-
-// const express = require('express');
-// const router = express.Router();
-// const searchController = require('../controllers/searchController');
+// // Start the search consumer when the module is loaded
+// startSearchConsumer();
 
 // router.get('/search', searchController.searchHandler);
 
 // module.exports = router;
 
 
+// search-microservice/routes/searchRoutes.js
+
+// search-microservice/routes/searchRoutes.js
+
 const express = require('express');
-const router = express.Router();
 const searchController = require('../controllers/searchController');
 const amqp = require('amqplib');
 
+const router = express.Router();
+
+// Use the official Node.js image as the base image
+// FROM node:14
+
+// WORKDIR /app
+
+// COPY package*.json ./
+
+// RUN npm install
+
+// COPY . .
+
+// EXPOSE 3001
+
+// CMD ["node", "server.js"]
+
 const startSearchConsumer = async () => {
   try {
-    const connection = await amqp.connect('amqp://localhost');
+    const connection = await amqp.connect('amqp://rabbitmq');
     const channel = await connection.createChannel();
     const queue = 'search_queue';
 
@@ -76,6 +109,7 @@ const startSearchConsumer = async () => {
 // Start the search consumer when the module is loaded
 startSearchConsumer();
 
-router.get('/search', searchController.searchHandler);
+router.route('/search').all(searchController.searchHandler);
 
 module.exports = router;
+
