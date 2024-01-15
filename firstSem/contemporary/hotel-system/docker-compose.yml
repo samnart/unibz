@@ -16,8 +16,8 @@ services:
       - "3002:3002"
     networks:
       - microservices_network
-    depends_on:
-      - rabbitmq
+    # depends_on:
+    #   - rabbitmq
 
   booking-microservice:
     build:
@@ -26,8 +26,8 @@ services:
       - "3003:3003"
     networks:
       - microservices_network
-    depends_on:
-      - rabbitmq
+    # depends_on:
+    #   - rabbitmq
 
   search-microservice:
     build:
@@ -36,8 +36,8 @@ services:
       - "3001:3001"
     networks:
       - microservices_network
-    depends_on:
-      - rabbitmq
+    # depends_on:
+    #   - rabbitmq
 
 networks:
   microservices_network:
