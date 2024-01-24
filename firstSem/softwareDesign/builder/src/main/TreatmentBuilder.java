@@ -9,22 +9,36 @@ public class TreatmentBuilder {
         return this;
     }
 
-    public TreatmentBuilder manCalled(String name) {
+    public TreatmentAfterGender manCalled(String name) {
         instance = new manTreatment(name);
-        return this;
+        return new TreatmentAfterGender();
     }
 
-    public TreatmentBuilder womanCalled(String name) {
+    public TreatmentAfterGender womanCalled(String name) {
         instance = new womanTreatment(name);
-        return this;
+        return new TreatmentAfterGender();
     }
-
-    public Treatment build() {
-        return instance;
-    }
-
 
     public TreatmentBuilder thatIsCaptain() {
+        instance.setTitle(new captainTitle());
         return this;
+    }
+
+
+
+    public class TreatmentAfterGender {
+        public TreatmentAfterGender thatIsDoctor() {
+            instance.setTitle(new DoctorTitle());
+            return this;
+        }
+
+        public Treatment build() {
+            return instance;
+        }
+
+        public TreatmentAfterGender thatIsCaptain() {
+            instance.setTitle(new captainTitle());
+            return this;
+        }
     }
 }

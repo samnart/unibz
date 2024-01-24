@@ -37,8 +37,23 @@ public class TestTreatment {
     @Test
     void manCaptainTreatment() {
         TreatmentBuilder builder = new TreatmentBuilder();
+//        builder.womanCalled("test").thatIsDoctor().build();
         Treatment t = builder.manCalled("Giovanni").thatIsCaptain().build();
-        assertEquals("Mr. Giovanni", t.announce());
+        assertEquals("Cap. Mr. Giovanni", t.announce());
+    }
+
+    @Test
+    void womanCaptainTreatment() {
+        TreatmentBuilder builder = new TreatmentBuilder();
+        Treatment t = builder.womanCalled("Giovanna").thatIsCaptain().build();
+        assertEquals("Cap. Mrs. Giovanna", t.announce());
+    }
+
+    @Test
+    void manDoctorCaptainTreatment() {
+        TreatmentBuilder builder = new TreatmentBuilder();
+        Treatment t = builder.manCalled("John").thatIsCaptain().thatIsDoctor().build();
+        assertEquals("Cap. Dr. Mr. John", t.announce());
     }
 
 
