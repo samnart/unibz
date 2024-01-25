@@ -2,7 +2,7 @@ package src.main;
 
 public class TreatmentBuilder {
 
-    private Treatment instance;
+    private AbstractTreatment instance;
 
     public TreatmentBuilder thatIsDoctor() {
         instance.setTitle(new DoctorTitle());
@@ -32,12 +32,17 @@ public class TreatmentBuilder {
             return this;
         }
 
-        public Treatment build() {
+        public AbstractTreatment build() {
             return instance;
         }
 
         public TreatmentAfterGender thatIsCaptain() {
             instance.setTitle(new captainTitle());
+            return this;
+        }
+
+        public TreatmentAfterGender from(String place) {
+            instance = new placeProxy(instance, place);
             return this;
         }
     }

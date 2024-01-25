@@ -1,6 +1,6 @@
 package src.main;
 
-public class womanTreatment extends Treatment{
+public class womanTreatment extends AbstractTreatment {
     public womanTreatment(String name) {
         super(name);
     }
