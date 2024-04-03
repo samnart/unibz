@@ -1,6 +1,6 @@
 // apartment-microservice/models/Apartment.js
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const apartmentSchema = new mongoose.Schema({
   name: String,
@@ -8,4 +8,4 @@ const apartmentSchema = new mongoose.Schema({
   price: Number,
 });
 
-module.exports = mongoose.model('Apartment', apartmentSchema);
+module.exports = mongoose.model("Apartment", apartmentSchema);

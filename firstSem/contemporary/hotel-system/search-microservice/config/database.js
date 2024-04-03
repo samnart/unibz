@@ -14,9 +14,8 @@
 
 // module.exports = getDatabaseConfig;
 
-
 // search-microservice/config/database.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const getDatabaseConfig = (microserviceName) => {
   return {

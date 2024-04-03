@@ -28,29 +28,28 @@
 // // Call the function to start the microservice
 // startMicroservice();
 
-
 // search-microservice/server.js
-const express = require('express');
-const mongoose = require('mongoose');
-const searchRoutes = require('./routes/searchRoutes');
-const getDatabaseConfig = require('./config/database');
+const express = require("express");
+const mongoose = require("mongoose");
+const searchRoutes = require("./routes/searchRoutes");
+const getDatabaseConfig = require("./config/database");
 
 const startMicroservice = async () => {
   try {
-    const { database, options } = getDatabaseConfig('search_microservice');
+    const { database, options } = getDatabaseConfig("search_microservice");
     await mongoose.connect(database, options);
 
     const app = express();
     const port = process.env.PORT || 3001;
 
     app.use(express.json());
-    app.use('/api', searchRoutes);
+    app.use("/api", searchRoutes);
 
     app.listen(port, () => {
       console.log(`Search Microservice is running on port ${port}`);
     });
   } catch (error) {
-    console.error('Error starting Search Microservice:', error);
+    console.error("Error starting Search Microservice:", error);
     process.exit(1);
   }
 };

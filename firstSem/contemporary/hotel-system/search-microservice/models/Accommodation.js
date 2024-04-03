@@ -10,9 +10,8 @@
 
 // module.exports = mongoose.model('Accommodation', accommodationSchema);
 
-
 // search-microservice/models/Accommodation.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const accommodationSchema = new mongoose.Schema({
   name: String,
@@ -20,4 +19,4 @@ const accommodationSchema = new mongoose.Schema({
   availability: Boolean,
 });
 
-module.exports = mongoose.model('Accommodation', accommodationSchema);
+module.exports = mongoose.model("Accommodation", accommodationSchema);

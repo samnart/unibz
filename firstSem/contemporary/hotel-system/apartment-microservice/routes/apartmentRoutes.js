@@ -32,15 +32,18 @@
 
 // apartment-microservice/routes/apartmentRoutes.js
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { getApartments, createApartment } = require('../controllers/apartmentController');
-const Apartment = require('../models/Apartment');
+const {
+  getApartments,
+  createApartment,
+} = require("../controllers/apartmentController");
+const Apartment = require("../models/Apartment");
 
 module.exports = (channel) => {
-  router.get('/apartments', getApartments);
+  router.get("/apartments", getApartments);
 
-  router.post('/apartments', async (req, res) => {
+  router.post("/apartments", async (req, res) => {
     try {
       const { name, location, price } = req.body;
 
@@ -54,13 +57,16 @@ module.exports = (channel) => {
       await newApartment.save();
 
       // Send the apartment details to RabbitMQ queue (producer)
-      channel.assertQueue('apartment_queue', { durable: false });
-      channel.sendToQueue('apartment_queue', Buffer.from(JSON.stringify(newApartment)));
+      channel.assertQueue("apartment_queue", { durable: false });
+      channel.sendToQueue(
+        "apartment_queue",
+        Buffer.from(JSON.stringify(newApartment)),
+      );
 
-      res.status(201).json({ message: 'Apartment added successfully' });
+      res.status(201).json({ message: "Apartment added successfully" });
     } catch (error) {
-      console.error('Error creating apartment:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      console.error("Error creating apartment:", error);
+      res.status(500).json({ error: "Internal Server Error" });
     }
   });
 

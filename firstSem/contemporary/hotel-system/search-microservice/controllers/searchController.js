@@ -59,29 +59,32 @@
 // module.exports = { searchHandler };
 
 // search-microservice/controllers/searchController.js
-const amqp = require('amqplib');
-const axios = require('axios');
+const amqp = require("amqplib");
+const axios = require("axios");
 
 const searchHandler = async (req, res) => {
   try {
-    console.log('Executing searchHandler');
+    console.log("Executing searchHandler");
 
     const accommodations = await getAccommodationsWithDetails();
-    console.log('Accommodations from Apartment Microservice:', accommodations);
+    console.log("Accommodations from Apartment Microservice:", accommodations);
 
     res.json({ accommodations });
   } catch (error) {
-    console.error('Error processing search request:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error processing search request:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
 const getAccommodationsWithDetails = async () => {
   try {
-    const response = await axios.get('http://localhost:3002/api/apartments');
+    const response = await axios.get("http://localhost:3002/api/apartments");
     return response.data;
   } catch (error) {
-    console.error('Error communicating with Apartment Microservice', error.message);
+    console.error(
+      "Error communicating with Apartment Microservice",
+      error.message,
+    );
     throw error;
   }
 };

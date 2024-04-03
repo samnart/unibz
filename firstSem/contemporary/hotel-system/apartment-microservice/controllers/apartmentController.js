@@ -20,7 +20,6 @@
 //   }
 // };
 
-
 // const createApartment = async (req, res) => {
 //   try {
 //     const { name, location, price } = req.body;
@@ -79,27 +78,32 @@
 //   }
 // };
 
-
 // module.exports = { createApartment, getApartments };
-
 
 // apartment-microservice/controllers/apartmentController.js
 
-const axios = require('axios');
-const amqp = require('amqplib');
-const express = require('express');
+const axios = require("axios");
+const amqp = require("amqplib");
+const express = require("express");
 const router = express.Router();
-const Apartment = require('../models/Apartment');
+const Apartment = require("../models/Apartment");
 
 const getApartmentsWithBookings = async () => {
   try {
-    const response = await axios.get('http://booking-microservice:3003/api/bookings');
+    const response = await axios.get(
+      "http://booking-microservice:3003/api/bookings",
+    );
     return response.data;
   } catch (error) {
-    if (error.code === 'ECONNREFUSED') {
-      console.error('Error: Unable to connect to Booking Microservice. Ensure it is running.');
+    if (error.code === "ECONNREFUSED") {
+      console.error(
+        "Error: Unable to connect to Booking Microservice. Ensure it is running.",
+      );
     } else {
-      console.error('Error communicating with Booking Microservice', error.message);
+      console.error(
+        "Error communicating with Booking Microservice",
+        error.message,
+      );
     }
     return { bookings: [] };
   }
@@ -119,11 +123,11 @@ const createApartment = async (req, res) => {
     await newApartment.save();
 
     // Connect to RabbitMQ server
-    const connection = await amqp.connect('amqp://rabbitmq');
+    const connection = await amqp.connect("amqp://rabbitmq");
     const channel = await connection.createChannel();
 
     // Define a queue name for apartment messages
-    const queueName = 'apartment_queue';
+    const queueName = "apartment_queue";
 
     // Send the apartment details to RabbitMQ queue (producer)
     channel.assertQueue(queueName, { durable: false });
@@ -132,10 +136,10 @@ const createApartment = async (req, res) => {
     // Close the RabbitMQ connection
     await connection.close();
 
-    res.status(201).json({ message: 'Apartment added successfully' });
+    res.status(201).json({ message: "Apartment added successfully" });
   } catch (error) {
-    console.error('Error creating apartment:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error creating apartment:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -145,11 +149,14 @@ const getApartments = async (req, res) => {
     const bookingsResponse = await getApartmentsWithBookings();
     const bookings = bookingsResponse.bookings || [];
 
-    console.log('Local Apartments:', localApartments);
-    console.log('Bookings:', bookings);
+    console.log("Local Apartments:", localApartments);
+    console.log("Bookings:", bookings);
 
     const apartmentsWithBookings = localApartments.map((apartment) => {
-      const booking = bookings.find((booking) => booking.accommodationId.toString() === apartment._id.toString());
+      const booking = bookings.find(
+        (booking) =>
+          booking.accommodationId.toString() === apartment._id.toString(),
+      );
       return {
         ...apartment.toObject(),
         booking: booking || null,
@@ -158,8 +165,8 @@ const getApartments = async (req, res) => {
 
     res.json({ apartmentsWithBookings });
   } catch (error) {
-    console.error('Error getting apartments:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error getting apartments:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 

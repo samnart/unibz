@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // const getDatabaseConfig = (microserviceName) => {
 //   return {
@@ -11,7 +11,6 @@ const mongoose = require('mongoose');
 // };
 
 // module.exports = getDatabaseConfig;
-
 
 const getDatabaseConfig = (microserviceName) => {
   return {

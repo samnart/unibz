@@ -31,19 +31,19 @@
 //   return router;
 // };
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bookingController = require('../controllers/bookingController');
+const bookingController = require("../controllers/bookingController");
 
 module.exports = () => {
   // POST request to create a new booking
-  router.post('/bookings', bookingController.createBooking);
+  router.post("/bookings", bookingController.createBooking);
 
   // DELETE request to delete a booking
-  router.delete('/bookings/:bookingId', bookingController.deleteBooking);
+  router.delete("/bookings/:bookingId", bookingController.deleteBooking);
 
   // GET request to retrieve bookings
-  router.get('/bookings', bookingController.getBookings);
+  router.get("/bookings", bookingController.getBookings);
 
   return router;
 };
